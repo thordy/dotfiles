@@ -1,0 +1,22 @@
+[user]
+    email = me@thordy.dev
+	name = Thord Setsaas
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ignored = !git ls-files -v | grep ^[[:lower:]]
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    last = log -1 --stat
+    cl = clone
+    ci = commit
+    unstage = reset HEAD --
+    dc = diff --cached
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+    ds = diff --staged
+    d = diff
+[core]
+	editor = vim
+[credential]
+	helper = cache

@@ -1,0 +1,23 @@
+# Set correct colorscheme for component files
+scheme:custom_log4j:component[0-9]+?.log[\.0-9]?
+
+statusline_ts_format:%Y-%m-%d %H:%M:%S
+
+# Custom log4j format
+colorscheme:custom_log4j
+# Log levels
+cs_re:red,yellow,bold:\bFATAL|fatal\b
+cs_re:red:\bERROR|error\b
+cs_re:blue:\bINFO|info\b
+cs_re:yellow:\bWARN|warn\b
+cs_re:white:\bDEBUG|debug\b
+#Date (2017-08-16 09:22:59,804)
+#cs_re_s:blue:([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3})
+# Match IDs
+cs_re_s:magenta:"?[bMm]atch"?:? ([0-9]{2,})
+cs_re_s:magenta:\{?"?id"? `?:? ([0-9]{2,}) \}
+# IP Address
+cs_re_s:white,,bold:\[?[']?([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)[',]?\]?
+# vt-java-controller-proxy
+cs_re_s:cyan: '(/api/0.2/[0-9a-zA-Z/]+)'
+cs_re_s:green: '(OK \(200\))'
