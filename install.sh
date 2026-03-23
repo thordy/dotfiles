@@ -16,7 +16,7 @@ if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
 
   if [ $? -ne 0 ]; then
     printf "Vundle install failed\n"
-    exit 1  
+    exit 1
   fi
 fi
 ln -sv "$DOTFILES_DIR/vimrc" $HOME/.vimrc
@@ -44,7 +44,9 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   cd iTerm2-Color-Schemes
   tools/import-scheme.sh schemes/*
   cd ..
-  # Currently using "Monokai Vivid"
+
+  # Setup sane HOME/END keys
+  cp DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
 fi
 
 if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
@@ -53,6 +55,6 @@ if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
 
   if [ $? -ne 0 ]; then
     printf "zsh-autosuggestions install failed\n"
-    exit 1  
+    exit 1
   fi
 fi
