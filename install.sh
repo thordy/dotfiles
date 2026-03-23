@@ -31,12 +31,21 @@ else
   ln -sv "$DOTFILES_DIR/zshrc" $HOME/.zshrc
 fi
 
-## TODO Install Powerline-fonts (https://github.com/powerline/fonts)
+## Install Powerline-fonts (https://github.com/powerline/fonts)
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+
+## Clone iTerm2 Color Schemes
+if [[ "$(uname -s)" != "Darwin" ]]; then
+  git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
+  cd iTerm2-Color-Schemes
+  tools/import-scheme.sh schemes/*
+  cd ..
+  # Currently using "Monokai Vivid"
+fi
 
 if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
   printf "Installing zsh-autosuggestions\n"
